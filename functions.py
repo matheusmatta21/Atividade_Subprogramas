@@ -3,10 +3,8 @@ import db
 
 def number_of_words(path):
     file_array = db.read_file(path)
-    lenghts_sum = 0
-    for index in range(0, len(file_array)):
-        lenghts_sum += len(file_array[index])
-    print(f"Existem {lenghts_sum} palavras.\n")
+    lenghts_sum = [len(file_array[index]) for index in range(0, len(file_array))]
+    print(f"Existem {lenghts_sum[0]} palavras.\n")
 
 
 def biggest_words(path):
@@ -23,7 +21,7 @@ def biggest_words(path):
                 biggest_word = word
 
             elif len(word) == len(biggest_word) and len(word) != 0:
-                concatenation = biggest_word + " " + word  # o len dela fica imenso
+                concatenation = biggest_word + " " + word
     if concatenation == "":
         biggest_words_list.append(biggest_word)
     else:
